@@ -1,5 +1,8 @@
 #include "shell_header.h"
-
+/**
+* implement_cmd - Executes a command in a child process
+* @cmd: The command to execute
+*/
 void implement_cmd(const char *cmd)
 {
 	pid_t child_process_id = fork();
