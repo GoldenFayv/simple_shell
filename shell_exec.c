@@ -1,8 +1,5 @@
 #include "shell_header.h"
-/**
-* implement_cmd - Executes a command in a child process
-* @cmd: The command to execute
-*/
+
 void implement_cmd(const char *cmd)
 {
 	pid_t child_process_id = fork();
@@ -12,21 +9,16 @@ void implement_cmd(const char *cmd)
 		perror("fork");
 		exit(EXIT_FAILURE);
 	}
-
 	else if (child_process_id == 0)
 	{
-		char *args[MAX_COMMAND_LENGTH];
-		char *executable = "/bin/ls";
+		char *args[] = {(char *)cmd, NULL};
 
-		parse_cmd((char *)cmd, args);
-		if (execve(executable, args, NULL) == -1)
+		if (execve(cmd, args, NULL) == -1)
 		{
 			perror("execve");
 			exit(EXIT_FAILURE);
 		}
 	}
 	else
-	{
 		wait(NULL);
-	}
 }
