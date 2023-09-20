@@ -5,6 +5,6 @@
 */
 void output(const char *output_msg)
 {
-        write(STDOUT_FILENO, output_msg, strlen(output_msg));
-        fflush(stdout);
+	write(STDOUT_FILENO, output_msg, strlen(output_msg));
+	fflush(stdout);
 }
