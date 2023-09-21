@@ -25,7 +25,7 @@ int main(void)
 			continue;
 		}
 		implement_cmd(cmd);
+		free(cmd);
 	}
-	free(cmd);
 	return (0);
 }
